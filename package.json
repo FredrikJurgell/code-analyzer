@@ -4,6 +4,12 @@
   "description": "1dv610 - laboration 1",
   "type": "module",
   "main": "src/code-analyzer.js",
+  "scripts": {
+    "start": "node src/code-analyzer.js",
+    "start:dev": "nodemon --inspect src/code-analyzer.js",
+    "lint": "npx eslint src/code-analyzer.js || exit 0",
+    "lint:fix": "npx eslint src/code-analyzer.js --fix || exit 0"
+  },
   "repository": {
     "type": "git",
     "url": "git+ssh://git@github.com:FredrikJurgell/1dv610-L1.gitt"
