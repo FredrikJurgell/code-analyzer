@@ -82,4 +82,20 @@ export default class CodeAnalyzer {
 
     return numberOfWhileLoops
   }
+
+  /**
+   * Counts the number of returns.
+   *
+   * @param {string} data - The code.
+   * @returns {number} - The number of returns.
+   */
+  returnsCounter (data) {
+    let numberOfReturns = 0
+    const returnsArray = data.match(/return /g) // match "return ".
+    for (let i = 0; i < returnsArray.length; i++) {
+      numberOfReturns++
+    }
+
+    return numberOfReturns
+  }
 }
