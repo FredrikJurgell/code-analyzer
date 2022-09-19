@@ -189,4 +189,38 @@ export default class CodeAnalyzer {
   charactersCounter (data) {
     return data.length
   }
+
+  /**
+   * Returns the number of variables in the code.
+   *
+   * @param {string} data - The code.
+   * @returns {number} - The number of variables.
+   */
+  variablesCounter (data) {
+    let varVariables = data.match(/[^a-zA-Z]var /g)
+    let letVariables = data.match(/[^a-zA-Z]let /g)
+    let constVariables = data.match(/[^a-zA-Z]const /g)
+
+    if (varVariables === null) {
+      varVariables = 0
+    } else {
+      varVariables = varVariables.length
+    }
+
+    if (letVariables === null) {
+      letVariables = 0
+    } else {
+      letVariables = letVariables.length
+    }
+
+    if (constVariables === null) {
+      constVariables = 0
+    } else {
+      constVariables = constVariables.length
+    }
+
+    const numberOfVariables = varVariables + letVariables + constVariables
+
+    return numberOfVariables
+  }
 }
