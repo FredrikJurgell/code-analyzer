@@ -32,5 +32,8 @@
   "bugs": {
     "url": "https://github.com/FredrikJurgell/1dv610-L1"
   },
-  "homepage": "https://github.com/FredrikJurgell/1dv610-L1"
+  "homepage": "https://github.com/FredrikJurgell/1dv610-L1",
+  "dependencies": {
+    "node-fetch": "^3.2.10"
+  }
 }
