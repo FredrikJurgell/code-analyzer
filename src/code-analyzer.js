@@ -101,7 +101,7 @@ export default class CodeAnalyzer {
   forLoopsCounter (data) {
     let numberOfForLoops = 0
 
-    const forLoopsArray = data.match(/for \(/g) || [] // match "for (".
+    const forLoopsArray = data.match(/[^a-zA-Z]for \(/g) || [] // match "for (".
 
     if (forLoopsArray.length === 0) {
       return 0
@@ -123,7 +123,7 @@ export default class CodeAnalyzer {
   inlineCommentsCounter (data) {
     let numberOfComments = 0
 
-    const commentsArray = data.match(/\/\/ /g) || [] // match "// ".
+    const commentsArray = data.match(/[^a-zA-Z]\/\/ /g) || [] // match "// ".
 
     if (commentsArray.length === 0) {
       return 0
@@ -145,7 +145,7 @@ export default class CodeAnalyzer {
   whileLoopsCounter (data) {
     let numberOfWhileLoops = 0
 
-    const whileLoopsArray = data.match(/while \(/g) || [] // match "while (".
+    const whileLoopsArray = data.match(/[^a-zA-Z]while \(/g) || [] // match "while (".
 
     if (whileLoopsArray.length === 0) {
       return 0
@@ -167,7 +167,7 @@ export default class CodeAnalyzer {
   returnsCounter (data) {
     let numberOfReturns = 0
 
-    const returnsArray = data.match(/return /g) || [] // match "return ".
+    const returnsArray = data.match(/[^a-zA-Z]return /g) || [] // match "return ".
 
     if (returnsArray.length === 0) {
       return 0
@@ -197,9 +197,9 @@ export default class CodeAnalyzer {
    * @returns {number} - The number of variables.
    */
   variablesCounter (data) {
-    let varVariables = data.match(/[^a-zA-Z]var /g)
-    let letVariables = data.match(/[^a-zA-Z]let /g)
-    let constVariables = data.match(/[^a-zA-Z]const /g)
+    let varVariables = data.match(/[^a-zA-Z]var /g) // match "var ".
+    let letVariables = data.match(/[^a-zA-Z]let /g) // match "let ".
+    let constVariables = data.match(/[^a-zA-Z]const /g) // match "const ".
 
     if (varVariables === null) {
       varVariables = 0
@@ -222,5 +222,26 @@ export default class CodeAnalyzer {
     const numberOfVariables = varVariables + letVariables + constVariables
 
     return numberOfVariables
+  }
+
+  /**
+   * Returns the number of jsdoc-comments in the code.
+   *
+   * @param {string} data - The code.
+   * @returns {number} - The number of jsdoc-comments.
+   */
+  jsdocCommentsCounter (data) {
+    let counter = 0
+    const dataStringArray = data.split(/\n/)
+
+    for (let i = 0; i < dataStringArray.length; i++) {
+      if (dataStringArray[i].match(/\/\*\*/) || dataStringArray[i].match(/\/\*/)) { // match for /**
+        if (dataStringArray[i + 1].match(/\*/) || dataStringArray[i + 1].match(/\*\//)) { // match for * or */
+          counter++
+        }
+      }
+    }
+
+    return counter
   }
 }
