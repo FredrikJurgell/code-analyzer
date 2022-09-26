@@ -80,6 +80,10 @@ export default class CodeAnalyzer {
   linesCounter (data) {
     let numberofLines = 0
 
+    if (data === undefined) {
+      return 0
+    }
+
     if (!data.length) {
       return 0
     }
@@ -101,6 +105,10 @@ export default class CodeAnalyzer {
    */
   forLoopsCounter (data) {
     let numberOfForLoops = 0
+
+    if (data === undefined) {
+      return 0
+    }
 
     const forLoopsArray = data.match(/[^a-zA-Z]for \(/g) || [] // match "for (".
 
@@ -124,6 +132,10 @@ export default class CodeAnalyzer {
   inlineCommentsCounter (data) {
     let numberOfComments = 0
 
+    if (data === undefined) {
+      return 0
+    }
+
     const commentsArray = data.match(/[^a-zA-Z]\/\/ /g) || [] // match "// ".
 
     if (commentsArray.length === 0) {
@@ -145,6 +157,10 @@ export default class CodeAnalyzer {
    */
   whileLoopsCounter (data) {
     let numberOfWhileLoops = 0
+
+    if (data === undefined) {
+      return 0
+    }
 
     const whileLoopsArray = data.match(/[^a-zA-Z]while \(/g) || [] // match "while (".
 
@@ -168,6 +184,10 @@ export default class CodeAnalyzer {
   returnsCounter (data) {
     let numberOfReturns = 0
 
+    if (data === undefined) {
+      return 0
+    }
+
     const returnsArray = data.match(/[^a-zA-Z]return /g) || [] // match "return ".
 
     if (returnsArray.length === 0) {
@@ -188,6 +208,10 @@ export default class CodeAnalyzer {
    * @returns {number} - The number of characters.
    */
   charactersCounter (data) {
+    if (data === undefined) {
+      return 0
+    }
+
     return data.length
   }
 
@@ -198,6 +222,10 @@ export default class CodeAnalyzer {
    * @returns {number} - The number of variables.
    */
   variablesCounter (data) {
+    if (data === undefined) {
+      return 0
+    }
+
     let varVariables = data.match(/[^a-zA-Z]var /g) // match "var ".
     let letVariables = data.match(/[^a-zA-Z]let /g) // match "let ".
     let constVariables = data.match(/[^a-zA-Z]const /g) // match "const ".
@@ -232,6 +260,10 @@ export default class CodeAnalyzer {
    * @returns {number} - The number of jsdoc-comments.
    */
   jsdocCommentsCounter (data) {
+    if (data === undefined) {
+      return 0
+    }
+
     let counter = 0
     const dataStringArray = data.split(/\n/)
 

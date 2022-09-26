@@ -66,19 +66,19 @@ Jag har en variabel som heter returnsArray. returnsArray är egentligen inget br
 # Funktioner
 | Metodnamn och länk eller kod | Antal rader ( ej ws ) | Reflektion |
 |----|:--:|----|
-| variablesCounter | 20 | Do One Thing |
+| variablesCounter | 23 | Do One Thing |
 |    |    | Gör betydlig fler saker än bara en. Den matchar olika variabler, har tre olika if-satser och adderar även antalet olika variabler. |
 |    |    |    |
 | folderToRead | 12 | Function Arguments |
 |    |    | Metoden har bara ett argument. Den är enkel att förstå. Man skickar med ett namn på en map som en sträng på den mappen man vill läsa. |
 |    |    |    |
-| jsdocCommentsCounter |10 | Use Descriptive Names |
+| jsdocCommentsCounter | 13 | Use Descriptive Names |
 |    |    | Är ett tydligt namn där man direkt förstår vad den gör. Dvs räknar antallet jsdoc-kommentarer. |
 |    |    |    |
-| forLoopsCounter | 10 | Have No Side Effects |
+| forLoopsCounter | 13 | Have No Side Effects |
 |    |    | Den här metoden har inga sidoeffekter. Den ändrar inte på någon data. Utan den returnerar bara det man förväntar sig, dvs antalet for-loops. |
 |    |    |    |
-| inlineCommentsCounter | 10 | Don’t Repeat Yourself |
+| inlineCommentsCounter | 13 | Don’t Repeat Yourself |
 |    |    | Det är ingen upprepning i själva metoden, däremot så har jag andra metoder som gör liknande saker, och där blir det en hel del upprepning. Jag borde istället haft en metod som räknar på indata från en parameter. |
 
 # Reflektion
