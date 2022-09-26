@@ -5,15 +5,19 @@ import fetch from 'node-fetch'
  * Analyzes your code.
  */
 export default class CodeAnalyzer {
+  constructor (fileName) {
+    this.fileName = fileName
+  }
+
   /**
    * Returns the read code from the file as a string.
    *
-   * @param {string} fileName - The name of the file.
+   * @param {string} this.fileName - The name of the file.
    * @returns {string} - The code as a string.
    */
-  fileToRead (fileName) {
+  fileToRead () {
     try {
-      const readFile = fs.readFileSync(fileName, 'utf-8')
+      const readFile = fs.readFileSync(this.fileName, 'utf-8')
 
       return readFile
     } catch (error) {
@@ -56,10 +60,7 @@ export default class CodeAnalyzer {
     const url = `https://api.github.com/repos/${owner}/${repo}/contents/${path}`
 
     const response = await fetch(url, {
-      method: 'GET',
-      headers: {
-        'bearer-token': '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'
-      }
+      method: 'GET'
     })
 
     const resonseJson = await response.json()
