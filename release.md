@@ -80,3 +80,13 @@ Jag har en variabel som heter returnsArray. returnsArray är egentligen inget br
 |    |    |    |
 | inlineCommentsCounter | 10 | Don’t Repeat Yourself |
 |    |    | Det är ingen upprepning i själva metoden, däremot så har jag andra metoder som gör liknande saker, och där blir det en hel del upprepning. Jag borde istället haft en metod som räknar på indata från en parameter. |
+
+# Reflektion
+
+De metoder jag har skrivit har varit för långa om man ska följa boken, de gör även för många olika saker. Vissa metoder matchar igenom strängar, har flera olika if-satser och adderar olika variabler. Allt detta hade kunnat bryta ut till egna metoder som gör en enskild sak.
+
+Det blir också en hel del repetering utav kod. Jag tycker inte att det är repeterande kod inuti de olika metoderna, men däremot är det några metoder som är liknande varandra, där man hade kunnat bryta ut det till en egen metod för att sedan använda den inuti de andra metoderna. Då hade man både sluppit att repetera kod, metoderna hade gjort färre saker och blivit kortare.
+
+Jag tycker att mina metodnamn har en bra namngivning. Det är inga ”roliga” namn, utan de är tydliga med vad de gör och det är enkelt att söka efter namnen då det är hela ord och inga förkortningar utav ord. De är enkla att att läsa, vilket gör det enklare att prata om dem med andra programmerare. T.ex. att den läser en fil eller map, att den räknar antalet for-loopar.
+
+Många utav mina variabler hade kunnat ha bättre namn i sig är något som jag har märkt under tiden. Några har alldeles för mycket ”noise”, dvs att det står i variabelnamnet att det är en array etc. Det behöver inte stå i namnet på variabeln att det är en array.
