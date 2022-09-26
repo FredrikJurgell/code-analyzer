@@ -1,6 +1,6 @@
 # Testrapport
 
-| Testcase | Vad som testas   |      Hur det testas      |  Förväntat resultat |
+| Testcase | Vad som testas | Hur det testas |  Förväntat resultat |
 |:-:|----------|-------------|------|
 | TC1. | Returnera kod som sträng |  Skapa ett objekt genom ”let codeAnalyzer = new CodeAnalyzer(’example-app/src/code-example.js’)" | Filen skrivs ut i konsolen som en sträng. |
 |    |    | Skapa en variable genom ”let file = codeAnalyzer.fileToRead()”   |    |
@@ -37,3 +37,33 @@
 | TC11. | Läsa fil från Github. | Skapa ett objekt genom ”let codeAnalyzer = new CodeAnalyzer(’example-app/src/code-example.js’)” | Det skrivs ut ”There are 139 lines in the code from GitHub.” i console. |
 |    |    | Skapa en variabel genom ”const fileGithub = await codeAnalyzer.readFileFromGithub('fredrikjurgell', '1dv610-l0', ’src/server.js’)" |    |
 |    |    | Skriv ut i console genom ”console.log('There are ' + codeAnalyzer.linesCounter(fileGithub) + ' lines in the code from GitHub.') |    |
+
+
+# Namngivning
+| Namn och förklaring | Reflektioner och regler från Clean Code|
+|----|----|
+| CodeAnalyzer | Intention-revealing name |
+| Klassnamnet i modulen. | Namnet är tydligt, talar om vad klassen gör. |
+|    | Avoid Disinformation |
+|    | Möjligen att namnet är lite för ”brett”, det talar inte om exakt hur koden analyseras. Men det hade varit svårt att göra namnet för specifikt också, eftersom att det är flera olika saker som analyseras. |
+|    |    |
+| fileToRead(fileName) | Method Names |
+| Returnerar kod från fil som en sträng. | Metodnamnet är ett verb. Skulle eventuellt beskriva vad man får tillbaka. Nu förstår man bara vad man ska använda den till, dvs vilken fil man vill ska läsas. |
+|    |    |
+| variablesCounter() | Use Searchable Names |
+| Returnerar en sifra på hur många variabler som finns i koden. | Funktionsnamnet är enkelt att söka upp då det består utav hela ord, istället för t.ex. varCounter. Då hade det varit svårare att veta vad det är man ska söka efter. Nu är det enkelt att söka efter ”variables” exempelvis. |
+|    |    |
+| forLoopsCounter() | Use Pronounceable Names |
+| Returnerar en sifra på hur många for-loops som finns i koden. | Det är ett namn på metoden som är enkelt att uttala. Då är det enklare att prata om metoden med någon annan utvecklare. |
+|    |    |
+| readFileFromGithub(owner, repo, path) | Pick One Word per Concept |
+| Returnerar kod från Github som en sträng. | Jag använder mig konsekvent utav ”read” för att läsa filer i mina metodnamn, istället för att blanda med ord som ”fetch” eller ”get”. Tex fetchFileFromGithub(). |
+
+### Kortare reflektion
+Jag har en variabel som heter returnsArray. returnsArray är egentligen inget bra variabelnamn då det bryter mot regeln ”Make Meaningful Distinctions”. Array borde inte finnas med i namnet då det bara är noise. Det borde kanske istället heta bara returns. Men jag tycker inte att det hade varit något speciellt bra namn heller. Har även fler variabler som har array i namnet. Speciellt en som heter ”newArray” som förstås borde heta något annat.
+
+
+# Funktioner
+|    |    |    |
+|----|:--:|----|
+|    |    |    |
