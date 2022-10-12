@@ -15,7 +15,7 @@ export default class CodeAnalyzer {
    * @param {string} this.fileName - The name of the file.
    * @returns {string} - The code as a string.
    */
-  fileToRead () {
+  readFile () {
     try {
       const readFile = fs.readFileSync(this.fileName, 'utf-8')
 
@@ -31,7 +31,7 @@ export default class CodeAnalyzer {
    * @param {string} folderName - The name of the file.
    * @returns {Array} - The code as a array.
    */
-  folderToRead (folderName) {
+  readFolder (folderName) {
     try {
       const readFolder = fs.readdirSync(folderName, 'utf-8')
       const newArray = []
@@ -77,7 +77,7 @@ export default class CodeAnalyzer {
    * @param {string} data - The code.
    * @returns {number} - The number of lines.
    */
-  linesCounter (data) {
+  countLines (data) {
     let numberofLines = 0
 
     if (data === undefined) {
@@ -103,7 +103,7 @@ export default class CodeAnalyzer {
    * @param {string} data - The code.
    * @returns {number} - The number of for loops.
    */
-  forLoopsCounter (data) {
+  countForLoops (data) {
     let numberOfForLoops = 0
 
     if (data === undefined) {
@@ -129,7 +129,7 @@ export default class CodeAnalyzer {
    * @param {string} data - The code.
    * @returns {number} - The number of comments.
    */
-  inlineCommentsCounter (data) {
+   countInlineComments (data) {
     let numberOfComments = 0
 
     if (data === undefined) {
@@ -155,7 +155,7 @@ export default class CodeAnalyzer {
    * @param {string} data - The code.
    * @returns {number} - The number of while loops.
    */
-  whileLoopsCounter (data) {
+  countWhileLoops (data) {
     let numberOfWhileLoops = 0
 
     if (data === undefined) {
@@ -181,7 +181,7 @@ export default class CodeAnalyzer {
    * @param {string} data - The code.
    * @returns {number} - The number of returns.
    */
-  returnsCounter (data) {
+  countReturns (data) {
     let numberOfReturns = 0
 
     if (data === undefined) {
@@ -207,7 +207,7 @@ export default class CodeAnalyzer {
    * @param {string} data - The code.
    * @returns {number} - The number of characters.
    */
-  charactersCounter (data) {
+  countCharacters (data) {
     if (data === undefined) {
       return 0
     }
@@ -221,7 +221,7 @@ export default class CodeAnalyzer {
    * @param {string} data - The code.
    * @returns {number} - The number of variables.
    */
-  variablesCounter (data) {
+  countVariables (data) {
     if (data === undefined) {
       return 0
     }
@@ -259,7 +259,7 @@ export default class CodeAnalyzer {
    * @param {string} data - The code.
    * @returns {number} - The number of jsdoc-comments.
    */
-  jsdocCommentsCounter (data) {
+  countJsdocComments (data) {
     if (data === undefined) {
       return 0
     }
