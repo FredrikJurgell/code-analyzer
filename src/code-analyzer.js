@@ -71,6 +71,12 @@ export default class CodeAnalyzer {
     return str
   }
 
+  checkIfDataDefined(data) {
+    if (data === undefined) {
+      throw new Error('The data is undefined.')
+    }
+  }
+
   /**
    * Counts the number of lines.
    *
@@ -80,9 +86,7 @@ export default class CodeAnalyzer {
   countLines (data) {
     let numberofLines = 0
 
-    if (data === undefined) {
-      return 0
-    }
+    this.checkIfDataDefined(data)
 
     if (!data.length) {
       return 0
@@ -106,9 +110,7 @@ export default class CodeAnalyzer {
   countForLoops (data) {
     let numberOfForLoops = 0
 
-    if (data === undefined) {
-      return 0
-    }
+    this.checkIfDataDefined(data)
 
     const forLoopsArray = data.match(/[^a-zA-Z]for \(/g) || [] // match "for (".
 
@@ -132,9 +134,7 @@ export default class CodeAnalyzer {
    countInlineComments (data) {
     let numberOfComments = 0
 
-    if (data === undefined) {
-      return 0
-    }
+    this.checkIfDataDefined(data)
 
     const commentsArray = data.match(/[^a-zA-Z]\/\/ /g) || [] // match "// ".
 
@@ -158,9 +158,7 @@ export default class CodeAnalyzer {
   countWhileLoops (data) {
     let numberOfWhileLoops = 0
 
-    if (data === undefined) {
-      return 0
-    }
+    this.checkIfDataDefined(data)
 
     const whileLoopsArray = data.match(/[^a-zA-Z]while \(/g) || [] // match "while (".
 
@@ -184,9 +182,7 @@ export default class CodeAnalyzer {
   countReturns (data) {
     let numberOfReturns = 0
 
-    if (data === undefined) {
-      return 0
-    }
+    this.checkIfDataDefined(data)
 
     const returnsArray = data.match(/[^a-zA-Z]return /g) || [] // match "return ".
 
@@ -208,9 +204,7 @@ export default class CodeAnalyzer {
    * @returns {number} - The number of characters.
    */
   countCharacters (data) {
-    if (data === undefined) {
-      return 0
-    }
+    this.checkIfDataDefined(data)
 
     return data.length
   }
@@ -222,9 +216,7 @@ export default class CodeAnalyzer {
    * @returns {number} - The number of variables.
    */
   countVariables (data) {
-    if (data === undefined) {
-      return 0
-    }
+    this.checkIfDataDefined(data)
 
     let varVariables = data.match(/[^a-zA-Z]var /g) // match "var ".
     let letVariables = data.match(/[^a-zA-Z]let /g) // match "let ".
@@ -260,9 +252,7 @@ export default class CodeAnalyzer {
    * @returns {number} - The number of jsdoc-comments.
    */
   countJsdocComments (data) {
-    if (data === undefined) {
-      return 0
-    }
+    this.checkIfDataDefined(data)
 
     let counter = 0
     const dataStringArray = data.split(/\n/)
