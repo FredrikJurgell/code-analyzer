@@ -8,7 +8,7 @@ const main = async function () {
     let codeAnalyzer = new CodeAnalyzer('example-app/src/code-example.js')
     let file = codeAnalyzer.readFile()
   
-    const numberOfLines = codeAnalyzer.countLines()
+    const numberOfLines = codeAnalyzer.countLines(file)
     console.log('There are ' + numberOfLines + ' lines.')
   
     const numberOfForLoops = codeAnalyzer.countForLoops(file)
