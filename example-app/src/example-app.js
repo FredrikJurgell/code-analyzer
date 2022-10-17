@@ -38,7 +38,9 @@ const main = async function () {
   
     const numberOfLinesFolder = codeAnalyzer.countLines(fileFromFolder)
     console.log('There are ' + numberOfLinesFolder + ' lines.')
-  
+
+    console.log(codeAnalyzer.longestLine(file))
+
     const fileGithub = await codeAnalyzer.readFileFromGithub('fredrikjurgell', '1dv610-l0', 'src/server.js')
     console.log('There are ' + codeAnalyzer.countLines(fileGithub) + ' lines in the code from GitHub.')
   } catch (error) {

@@ -48,7 +48,7 @@ export default class CodeAnalyzer {
     return str
   }
 
-  #checkIfDataDefined(data) {
+  #checkIfDataDefined (data) {
     if (data === undefined) {
       throw new Error('The data is undefined.')
     }
@@ -82,7 +82,7 @@ export default class CodeAnalyzer {
     return numberOfForLoops
   }
 
-   countInlineComments (data) {
+  countInlineComments (data) {
     let numberOfComments = 0
 
     this.#checkIfDataDefined(data)
@@ -175,5 +175,23 @@ export default class CodeAnalyzer {
     }
 
     return counter
+  }
+
+  longestLine (data) {
+    this.#checkIfDataDefined(data)
+    let longestLineLength = 0
+    const longestLine = {}
+
+    const splitData = data.split('\n')
+    for (let i = 0; i < splitData.length; i++) {
+      if (splitData[i].length > longestLineLength) {
+        longestLineLength = splitData[i].length
+        longestLine.string = splitData[i]
+        longestLine.lineNumber = i + 1
+        longestLine.lineLength = splitData[i].length
+      }
+    }
+
+    return longestLine
   }
 }
