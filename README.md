@@ -4,10 +4,19 @@ The Code Analyzer is used to give you information about whats in your code. Such
 ## Example
 ```
 let codeAnalyzer = new CodeAnalyzer('example-app/src/code-example.js')
-let file = codeAnalyzer.fileToRead()
+let file = codeAnalyzer.readFile()
 
-const numberOfLines = codeAnalyzer.linesCounter(file)
+const numberOfLines = codeAnalyzer.countLines(file)
 console.log('There are ' + numberOfLines + ' lines.')
+
+const numberOfForLoops = codeAnalyzer.countForLoops(file)
+console.log('There are ' + numberOfForLoops + ' for-loops.')
+
+const numberOfInlineComments = codeAnalyzer.countInlineComments(file)
+console.log('There are ' + numberOfInlineComments + ' inline-comments.')
+
+const numberOfWhileLoops = codeAnalyzer.countWhileLoops(file)
+console.log('There are ' + numberOfWhileLoops + ' while-loops.')
 ```
 
 ## Methods
@@ -33,3 +42,5 @@ console.log('There are ' + numberOfLines + ' lines.')
 ```variablesCounter(data)``` - Returns the number of variables in the code.
 
 ```jsdocCommentsCounter(data)``` - Returns the number of jsdoc-comments in the code.
+
+```longestLine(data)``` - Returns an object with the longest line as a string, the lines length as a number and the line's number as a number.
